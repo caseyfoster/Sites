@@ -652,7 +652,7 @@ const btns = document.querySelectorAll('button');
 btns[0].onclick = converter;
 btns[1].onclick = mileMath;
 btns[2].onclick = carRange;
-btns[3].onclick = getNum;
+btns[3].onclick = countToTen;
 
 function converter() {
     miles = prompt("how many miles?");
@@ -675,18 +675,70 @@ function carRange() {
     document.getElementById('rangeCar').innerHTML += rangeCar[rangeCar.length-1] + "<br />";
 }
 
-function getNum(){
-    var num = prompt("info1");
-    numberLog.push(num);
-    document.getElementById('numberLog' + "miles").innerHTML += numberLog[numberLog.length-1] + "<br />";
-    console.log(numberLog);
+function countToTen(){
+    let xTen = 0;
+    while (xTen < 10){
+      xTen++;
+      // console.log(xTen);
+      document.getElementById("countToTen").innerHTML += xTen + "<br />";
+    }
+    
 }
+var forecast = 'http://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&cnt=7&APPID=c198e68626d43be90b0083f17d7d04f0';
+var hourly = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
 
-fetch('http://openweathermap.org/data/2.5/weather?zip=30339,us&appid=b6907d289e10d714a6e88b30761fae22')
+
+
+fetch(forecast)
   .then(function(response) {
     return response.json();
   })
   .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
-    document.getElementById(myJson);
+    document.getElementById('weather-0').innerHTML = myJson.list[0].dt_txt + "<br>" + "Temp: " + myJson.list[0].main.temp + "<br>" +  "Precip: " + myJson.list[0].weather[0].description;
+    document.getElementById('weather-1').innerHTML = myJson.list[1].dt_txt + "<br>" + "Temp: " + myJson.list[1].main.temp + "<br>" +  "Precip: " + myJson.list[1].weather[0].description;
+    document.getElementById('weather-2').innerHTML = myJson.list[2].dt_txt + "<br>" + "Temp: " + myJson.list[2].main.temp + "<br>" +  "Precip: " + myJson.list[2].weather[0].description;
+    document.getElementById('weather-3').innerHTML = myJson.list[3].dt_txt + "<br>" + "Temp: " + myJson.list[3].main.temp + "<br>" +  "Precip: " + myJson.list[3].weather[0].description;
+    document.getElementById('weather-4').innerHTML = myJson.list[4].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[4].weather[0].description;
   });
+
+  fetch(hourly)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+  document.getElementById('hourly-0').innerHTML = myJson.list[0].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[0].weather[0].description;
+    document.getElementById('hourly-1').innerHTML = myJson.list[1].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[1].weather[0].description;
+    document.getElementById('hourly-2').innerHTML = myJson.list[2].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[2].weather[0].description;
+    document.getElementById('hourly-3').innerHTML = myJson.list[3].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[3].weather[0].description;
+    document.getElementById('hourly-4').innerHTML = myJson.list[4].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[4].weather[0].description;
+  });
+  //  let casey = ["Casey", "foster", true, 35];
+  //  let denae = ["denae", "olberding", false, 31];
+
+  //  let merge = casey.concat(denae);
+  //  merge.reverse();
+  //  console.log(merge);
+
+  //  if(casey.indexOf("denae") === -1){
+  //    console.log("found");
+  //  }else{
+  //    console.log("not found");
+  //  }
+
+  //  console.log(casey[1], casey[3]);
+
+//   let smallNum = [1,2,3,4,5,6,7,"casey",8,9,11,50,100,150];
+//   let result = smallNum.filter(function(smallNum){
+//     return smallNum === "Casey";
+// });
+// console.log(result);
+ 
+// for (let counter = 0; counter < 5; counter++){
+//   console.log(counter);
+// }
+
+// var mouse = 1;
+// while (mouse < 10){
+//   mouse++;
+//   console.log("this is the mouse" + mouse);
+// }
