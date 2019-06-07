@@ -712,6 +712,19 @@ fetch(forecast)
     document.getElementById('hourly-3').innerHTML = myJson.list[3].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[3].weather[0].description;
     document.getElementById('hourly-4').innerHTML = myJson.list[4].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[4].weather[0].description;
   });
+
+  var input = document.getElementById("myInput");
+  input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     document.getElementById("myBtn").click();
+    }
+  });
+
+  function eraseText() {
+    document.getElementById("output").value = "";
+}
+
   //  let casey = ["Casey", "foster", true, 35];
   //  let denae = ["denae", "olberding", false, 31];
 

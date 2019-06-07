@@ -35,7 +35,7 @@ body {
 
 .border {
     max-width: 900px;
-    background-color: darkgrey;
+    background-color: lightgray;
     margin: auto;
     width: 50%;
     border-radius: 6px;
