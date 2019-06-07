@@ -684,8 +684,8 @@ function countToTen(){
     }
     
 }
-var forecast = 'http://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&cnt=7&APPID=c198e68626d43be90b0083f17d7d04f0';
-var hourly = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
+var forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&cnt=7&APPID=c198e68626d43be90b0083f17d7d04f0';
+var hourly = 'https://api.openweathermap.org/data/2.5/forecast?id=524901&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
 
 
 
