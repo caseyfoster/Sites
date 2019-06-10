@@ -640,50 +640,50 @@
 // myCar.drive();
 // myCar.brakes();
 
-var numberLog = [];
-var mileLog = [];
-var addNumber = [];
-var num = [];
-var rangeCar = [];
+// var numberLog = [];
+// var mileLog = [];
+// var addNumber = [];
+// var num = [];
+// var rangeCar = [];
 
-const btns = document.querySelectorAll('button');
+// const btns = document.querySelectorAll('button');
 
 
-btns[0].onclick = converter;
-btns[1].onclick = mileMath;
-btns[2].onclick = carRange;
-btns[3].onclick = countToTen;
+// btns[0].onclick = converter;
+// btns[1].onclick = mileMath;
+// btns[2].onclick = carRange;
+// btns[3].onclick = countToTen;
 
-function converter() {
-    miles = prompt("how many miles?");
-    var math = miles * 1.6042;
-    mileLog.push(math);
-    document.getElementById('mileLog').innerHTML += mileLog[mileLog.length-1] + "<br />";
-}
+// function converter() {
+//     miles = prompt("how many miles?");
+//     var math = miles * 1.6042;
+//     mileLog.push(math);
+//     document.getElementById('mileLog').innerHTML += mileLog[mileLog.length-1] + "<br />";
+// }
 
-function mileMath() {
-    numberPrompt = prompt("Give me a number");
-    addNumber.push(numberPrompt);
-    document.getElementById('addNumber').innerHTML += addNumber[addNumber.length-1] + "<br />";
-}
+// function mileMath() {
+//     numberPrompt = prompt("Give me a number");
+//     addNumber.push(numberPrompt);
+//     document.getElementById('addNumber').innerHTML += addNumber[addNumber.length-1] + "<br />";
+// }
 
-function carRange() {
-    mpg = prompt("how many miles per gallon do you get?");
-    gallons = prompt("how many gallons does your car hold?");
-    var math = mpg * gallons;
-    rangeCar.push(math);
-    document.getElementById('rangeCar').innerHTML += rangeCar[rangeCar.length-1] + "<br />";
-}
+// function carRange() {
+//     mpg = prompt("how many miles per gallon do you get?");
+//     gallons = prompt("how many gallons does your car hold?");
+//     var math = mpg * gallons;
+//     rangeCar.push(math);
+//     document.getElementById('rangeCar').innerHTML += rangeCar[rangeCar.length-1] + "<br />";
+// }
 
-function countToTen(){
-    let xTen = 0;
-    while (xTen < 10){
-      xTen++;
-      // console.log(xTen);
-      document.getElementById("countToTen").innerHTML += xTen + "<br />";
-    }
+// function countToTen(){
+//     let xTen = 0;
+//     while (xTen < 10){
+//       xTen++;
+//       // console.log(xTen);
+//       document.getElementById("countToTen").innerHTML += xTen + "<br />";
+//     }
     
-}
+// }
 var forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&cnt=7&APPID=c198e68626d43be90b0083f17d7d04f0';
 var hourly = 'https://api.openweathermap.org/data/2.5/forecast?id=524901&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
 
@@ -706,27 +706,40 @@ fetch(forecast)
     return response.json();
   })
   .then(function(myJson) {
-  document.getElementById('hourly-0').innerHTML = myJson.list[0].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[0].weather[0].description;
+    document.getElementById('hourly-0').innerHTML = myJson.list[0].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[0].weather[0].description;
     document.getElementById('hourly-1').innerHTML = myJson.list[1].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[1].weather[0].description;
     document.getElementById('hourly-2').innerHTML = myJson.list[2].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[2].weather[0].description;
     document.getElementById('hourly-3').innerHTML = myJson.list[3].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[3].weather[0].description;
     document.getElementById('hourly-4').innerHTML = myJson.list[4].dt_txt + "<br>" + "Temp: " + myJson.list[4].main.temp + "<br>" +  "Precip: " + myJson.list[4].weather[0].description;
+    console.log(myJson);
   });
+ 
 
-  var input = document.getElementById("myInput");
-  input.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-     event.preventDefault();
-     document.getElementById("myBtn").click();
-    }
-  });
+//   const obj = {'Casey':'Foster', b:2, c:3};
+//   console.log(obj);
+//   for (let prop in obj){
+//   console.log(prop,obj[prop]);
+// } 
 
-  function eraseText() {
-    document.getElementById("output").value = "";
-}
+//   var input = document.getElementById("myInput");
+//   input.addEventListener("keyup", function(event) {
+//     if (event.keyCode === 13) {
+//      event.preventDefault();
+//      document.getElementById("myBtn").click();
+//     }
+//   });
 
-  //  let casey = ["Casey", "foster", true, 35];
-  //  let denae = ["denae", "olberding", false, 31];
+//   function eraseText() {
+//     document.getElementById("output").value = "";
+// }
+
+// let array1 = [1, 13, 12, 17, 18];
+// let array2 = [2, 66, 90, 502];
+// let numArray = array1.concat(array2);
+//    let result = numArray.filter(function (numArray) {
+//      return numArray % 2 == 0 && numArray > 13;
+//    });
+//    console.log(result);
 
   //  let merge = casey.concat(denae);
   //  merge.reverse();
@@ -754,4 +767,52 @@ fetch(forecast)
 // while (mouse < 10){
 //   mouse++;
 //   console.log("this is the mouse" + mouse);
+// }
+
+// const lessCount = [];
+// for(let x=1; x<10; x++){
+//   let stat = x % 2 ? true : false;
+//   let temp = {name:`Lesson ${x}`, status:stat};
+//   lessCount.push(temp);
+
+// }
+// console.log(lessCount)
+// const getTrue = lessCount.filter(function(el){
+//   return el.status;
+// });
+// console.log(getTrue);
+
+// const obj = {a:1, b:2, c:3};
+
+// const array1 = ['a', 'b', 'c'];
+// for (let w = 0; w < array1.length; w++){
+//   console.log(w.array1[w]);
+// }
+
+// for (el in array1){
+//   console.log(el.array1[el]);
+// }
+
+// // for (let property in obj) {
+// //   console.log(property.obj[property]);
+// // }
+
+// array1.forEach(function (element, index, array){
+//   console.log(index.element);
+// })
+
+// const obj = {'Casey':'Foster', b:2, c:3};
+// console.log(obj);
+// for (let prop in obj){
+//   console.log(prop,obj[prop]);
+// }
+
+// const array1 = ['array num 1', '2', '3'];
+
+// // array1.forEach(function (obj){
+// //   console.log(obj +"hello");
+// // })
+
+// for (let w = 0; w < array1.length; w++){
+//   console.log(w,array1[w]);
 // }
