@@ -67,7 +67,7 @@ body::after {
 @media only screen and (max-width: 900px) {
     .box-bg {
         display: grid;
-        max-width: 800px;
+        max-width: 600px;
         background-color: #1f2833;
         margin: auto;
         border-radius: 16px;
@@ -87,7 +87,7 @@ body::after {
     .weather {
         padding: 30px;
         display: grid;
-        grid-template-columns: 10% 10% 10%;
+        grid-template-columns: 100%;
         grid-template-rows: auto;
         color:#c5c6c7;
     }
@@ -96,4 +96,48 @@ body::after {
         width: 50px;
         height: 50px;
     }
-  }
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 80px;
+    background-color: #f1f1f1;
+    /* height: 100%; */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+  
+li a {
+    display: grid;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+  
+li a:active {
+    background-color:rgb(53, 52, 52);
+    color: white;
+}
+  
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+.nav-icon {
+    width: 50px;
+    margin: 0;
+    border-radius: 50%; 
+}
+
+.home-welcome {
+    font-size: 80px;
+    text-align: center;
+    color: white;
+    padding-top: 400px;
+}
+

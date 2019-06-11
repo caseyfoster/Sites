@@ -683,6 +683,19 @@
 //     }
     
 // }
+$(function(){
+  // this will get the full URL at the address bar
+  var url = window.location.href; 
+
+  // passes on every "a" tag 
+  $("#sub-header a").each(function() {
+          // checks if its the same on the address bar
+      if(url == (this.href)) { 
+          $(this).closest("li").addClass("active");
+      }
+  });
+});
+
 var forecast = 'https://api.openweathermap.org/data/2.5/forecast?zip=30339,us&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
 var hourly = 'https://api.openweathermap.org/data/2.5/forecast?zip=30339,us&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
 
