@@ -4,7 +4,7 @@ body {
 
 body::after {
     content: "";
-    background-image: url("http://blueprintcreatives.com/wp-content/uploads/2013/03/pattern.png");
+    background-image: url("https://blueprintcreatives.com/wp-content/uploads/2013/03/pattern.png");
     background-repeat: repeat;
     opacity: .2;
     top: 0;
@@ -64,7 +64,7 @@ body::after {
     height: 50px;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 900px) {
     .box-bg {
         display: grid;
         max-width: 800px;
@@ -87,7 +87,7 @@ body::after {
     .weather {
         padding: 30px;
         display: grid;
-        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-columns: 10% 10% 10%;
         grid-template-rows: auto;
         color:#c5c6c7;
     }
