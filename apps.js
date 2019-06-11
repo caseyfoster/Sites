@@ -683,46 +683,50 @@
 //     }
     
 // }
-var forecast = 'https://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&cnt=7&APPID=c198e68626d43be90b0083f17d7d04f0';
-var hourly = 'https://api.openweathermap.org/data/2.5/forecast?id=524901&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
+var forecast = 'http://api.openweathermap.org/data/2.5/forecast?zip=30339,us&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
+var hourly = 'http://api.openweathermap.org/data/2.5/forecast?zip=30339,us&units=imperial&appid=c198e68626d43be90b0083f17d7d04f0';
 
-fetch(hourly)
+fetch(forecast)
   .then(function(response) {
     return response.json();
   })
   .then(function(myJson) {
     setInnerHtmlw0(document.getElementById('weather-0'), myJson.list[0]);
-    setInnerHtmlw1(document.getElementById('weather-1'), myJson.list[1]);
-    setInnerHtmlw2(document.getElementById('weather-2'), myJson.list[2]);
-    setInnerHtmlw3(document.getElementById('weather-3'), myJson.list[3]);
-    setInnerHtmlw4(document.getElementById('weather-4'), myJson.list[4]);
-    console.log(myJson);
+    setInnerHtmlw1(document.getElementById('weather-1'), myJson.list[8]);
+    setInnerHtmlw2(document.getElementById('weather-2'), myJson.list[14]);
+    setInnerHtmlw3(document.getElementById('weather-3'), myJson.list[22]);
+    setInnerHtmlw4(document.getElementById('weather-4'), myJson.list[30]);
   });
 
   function setInnerHtmlw0(target, jsonObject){
     if (jsonObject.weather[0].description == "clear sky"){
       document.getElementById("0-image-weather").src = "images/sun.png";
     } else if (jsonObject.weather[0].description == "scattered clouds") { 
-      document.getElementById("0-image-weather").src = "images/rain.png";
+      document.getElementById("0-image-weather").src = "images/clouds.png";
     } else if (jsonObject.weather[0].description == "few clouds") {
       document.getElementById("0-image-weather").src = "images/clouds.png";
+    } else if (jsonObject.weather[0].description == "light rain") {
+      document.getElementById("0-image-weather").src = "images/rain.png";
     } else { 
       jsonObject.weather[0].description == "broken clouds"
-      document.getElementById("0-image-weather").src = "images/clouds.png";
+      document.getElementById("0-image-weather").src = "images/moreclouds.png";
     }
     target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
   }
+  
   
   function setInnerHtmlw1(target, jsonObject){
     if (jsonObject.weather[0].description == "clear sky"){
       document.getElementById("1-image-weather").src = "images/sun.png";
     } else if (jsonObject.weather[0].description == "scattered clouds") { 
-      document.getElementById("1-image-weather").src = "images/rain.png";
+      document.getElementById("1-image-weather").src = "images/clouds.png";
     } else if (jsonObject.weather[0].description == "few clouds") {
       document.getElementById("1-image-weather").src = "images/clouds.png";
+    } else if (jsonObject.weather[0].description == "light rain") {
+      document.getElementById("1-image-weather").src = "images/rain.png";
     } else { 
       jsonObject.weather[0].description == "broken clouds"
-      document.getElementById("1-image-weather").src = "images/clouds.png";
+      document.getElementById("1-image-weather").src = "images/moreclouds.png";
     }
     target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
   }
@@ -731,12 +735,14 @@ fetch(hourly)
     if (jsonObject.weather[0].description == "clear sky"){
       document.getElementById("2-image-weather").src = "images/sun.png";
     } else if (jsonObject.weather[0].description == "scattered clouds") { 
-      document.getElementById("2-image-howeatherurly").src = "images/rain.png";
+      document.getElementById("2-image-howeatherurly").src = "images/clouds.png";
     } else if (jsonObject.weather[0].description == "few clouds") {
       document.getElementById("2-image-weather").src = "images/clouds.png";
+    } else if (jsonObject.weather[0].description == "light rain") {
+      document.getElementById("2-image-weather").src = "images/rain.png";
     } else { 
       jsonObject.weather[0].description == "broken clouds"
-      document.getElementById("2-image-weather").src = "images/clouds.png";
+      document.getElementById("2-image-weather").src = "images/moreclouds.png";
     }
     target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
   }
@@ -745,12 +751,14 @@ fetch(hourly)
     if (jsonObject.weather[0].description == "clear sky"){
       document.getElementById("3-image-weather").src = "images/sun.png";
     } else if (jsonObject.weather[0].description == "scattered clouds") { 
-      document.getElementById("3-image-weather").src = "images/rain.png";
+      document.getElementById("3-image-weather").src = "images/clouds.png";
     } else if (jsonObject.weather[0].description == "few clouds") {
       document.getElementById("3-image-weather").src = "images/clouds.png";
+    } else if (jsonObject.weather[0].description == "light rain") {
+      document.getElementById("3-image-weather").src = "images/rain.png";
     } else { 
       jsonObject.weather[0].description == "broken clouds"
-      document.getElementById("3-image-weather").src = "images/clouds.png";
+      document.getElementById("3-image-weather").src = "images/moreclouds.png";
     }
     target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
   }
@@ -759,12 +767,14 @@ fetch(hourly)
     if (jsonObject.weather[0].description == "clear sky"){
       document.getElementById("4-image-weather").src = "images/sun.png";
     } else if (jsonObject.weather[0].description == "scattered clouds") { 
-      document.getElementById("4-image-weather").src = "images/rain.png";
+      document.getElementById("4-image-weather").src = "images/clouds.png";
     } else if (jsonObject.weather[0].description == "few clouds") {
       document.getElementById("4-image-weather").src = "images/clouds.png";
+    } else if (jsonObject.weather[0].description == "light rain") {
+      document.getElementById("4-image-weather").src = "images/rain.png";
     } else { 
       jsonObject.weather[0].description == "broken clouds"
-      document.getElementById("4-image-weather").src = "images/clouds.png";
+      document.getElementById("4-image-weather").src = "images/moreclouds.png";
     }
     target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
   }
@@ -779,33 +789,37 @@ fetch(hourly)
     setInnerHtml2(document.getElementById('hourly-2'), myJson.list[2]);
     setInnerHtml3(document.getElementById('hourly-3'), myJson.list[3]);
     setInnerHtml4(document.getElementById('hourly-4'), myJson.list[4]);
-    console.log(myJson);
   });
  
 function setInnerHtml0(target, jsonObject){
   if (jsonObject.weather[0].description == "clear sky"){
     document.getElementById("0-image-hourly").src = "images/sun.png";
   } else if (jsonObject.weather[0].description == "scattered clouds") { 
-    document.getElementById("0-image-hourly").src = "images/rain.png";
+    document.getElementById("0-image-hourly").src = "images/clouds.png";
   } else if (jsonObject.weather[0].description == "few clouds") {
     document.getElementById("0-image-hourly").src = "images/clouds.png";
+  } else if (jsonObject.weather[0].description == "light rain") {
+    document.getElementById("0-image-hourly").src = "images/rain.png";
   } else { 
     jsonObject.weather[0].description == "broken clouds"
-    document.getElementById("0-image-hourly").src = "images/clouds.png";
+    document.getElementById("0-image-hourly").src = "images/moreclouds.png";
   }
   target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
+  console.log(jsonObject.weather[0].description);
 }
 
 function setInnerHtml1(target, jsonObject){
   if (jsonObject.weather[0].description == "clear sky"){
     document.getElementById("1-image-hourly").src = "images/sun.png";
   } else if (jsonObject.weather[0].description == "scattered clouds") { 
-    document.getElementById("1-image-hourly").src = "images/rain.png";
+    document.getElementById("1-image-hourly").src = "images/clouds.png";
   } else if (jsonObject.weather[0].description == "few clouds") {
     document.getElementById("1-image-hourly").src = "images/clouds.png";
+  } else if (jsonObject.weather[0].description == "light rain") {
+    document.getElementById("1-image-hourly").src = "images/rain.png";
   } else { 
     jsonObject.weather[0].description == "broken clouds"
-    document.getElementById("1-image-hourly").src = "images/clouds.png";
+    document.getElementById("1-image-hourly").src = "images/moreclouds.png";
   }
   target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
 }
@@ -814,12 +828,14 @@ function setInnerHtml2(target, jsonObject){
   if (jsonObject.weather[0].description == "clear sky"){
     document.getElementById("2-image-hourly").src = "images/sun.png";
   } else if (jsonObject.weather[0].description == "scattered clouds") { 
-    document.getElementById("2-image-hourly").src = "images/rain.png";
+    document.getElementById("2-image-hourly").src = "images/clouds.png";
   } else if (jsonObject.weather[0].description == "few clouds") {
     document.getElementById("2-image-hourly").src = "images/clouds.png";
+  } else if (jsonObject.weather[0].description == "light rain") {
+    document.getElementById("2-image-hourly").src = "images/rain.png";
   } else { 
     jsonObject.weather[0].description == "broken clouds"
-    document.getElementById("2-image-hourly").src = "images/clouds.png";
+    document.getElementById("2-image-hourly").src = "images/moreclouds.png";
   }
   target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
 }
@@ -828,12 +844,14 @@ function setInnerHtml3(target, jsonObject){
   if (jsonObject.weather[0].description == "clear sky"){
     document.getElementById("3-image-hourly").src = "images/sun.png";
   } else if (jsonObject.weather[0].description == "scattered clouds") { 
-    document.getElementById("3-image-hourly").src = "images/rain.png";
+    document.getElementById("3-image-hourly").src = "images/clouds.png";
   } else if (jsonObject.weather[0].description == "few clouds") {
     document.getElementById("3-image-hourly").src = "images/clouds.png";
+  } else if (jsonObject.weather[0].description == "light rain") {
+    document.getElementById("3-image-hourly").src = "images/rain.png";
   } else { 
     jsonObject.weather[0].description == "broken clouds"
-    document.getElementById("3-image-hourly").src = "images/clouds.png";
+    document.getElementById("3-image-hourly").src = "images/moreclouds.png";
   }
   target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
 }
@@ -842,12 +860,14 @@ function setInnerHtml4(target, jsonObject){
   if (jsonObject.weather[0].description == "clear sky"){
     document.getElementById("4-image-hourly").src = "images/sun.png";
   } else if (jsonObject.weather[0].description == "scattered clouds") { 
-    document.getElementById("4-image-hourly").src = "images/rain.png";
+    document.getElementById("4-image-hourly").src = "images/clouds.png";
   } else if (jsonObject.weather[0].description == "few clouds") {
     document.getElementById("4-image-hourly").src = "images/clouds.png";
+  } else if (jsonObject.weather[0].description == "light rain") {
+    document.getElementById("4-image-hourly").src = "images/rain.png";
   } else { 
     jsonObject.weather[0].description == "broken clouds"
-    document.getElementById("4-image-hourly").src = "images/clouds.png";
+    document.getElementById("4-image-hourly").src = "images/moreclouds.png";
   }
   target.innerHTML = jsonObject.dt_txt + "<br>" + "Temperature: " + Math.round(jsonObject.main.temp) + "<br>" +  "Precipitation: " + jsonObject.weather[0].description.charAt(0).toUpperCase() + jsonObject.weather[0].description.slice(1);
 }
